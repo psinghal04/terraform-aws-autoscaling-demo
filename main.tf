@@ -95,8 +95,8 @@ resource "aws_security_group" "ec2_sg" {
 }
 
 resource "aws_launch_template" "asg_lt" {
-  name                   = "LT"
-  description            = "LT"
+  name                   = "AWSLT"
+  description            = "AWSLT"
   image_id               = data.aws_ami.amazon-2.id
   instance_type          = "t1.micro"
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
