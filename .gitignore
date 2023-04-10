@@ -1,0 +1,6 @@
+.idea
+.terraform
+terraform-aws-autoscaling-demo.iml
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
