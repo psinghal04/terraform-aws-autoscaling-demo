@@ -94,7 +94,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 }
 
-resource "aws_launch_template" "lt" {
+resource "aws_launch_template" "asg_lt" {
   name                   = "LT"
   description            = "LT"
   image_id               = data.aws_ami.amazon-2.id
@@ -106,7 +106,7 @@ resource "aws_launch_template" "lt" {
 resource "aws_autoscaling_group" "aws_asg" {
   name = "HOLASG"
   launch_template {
-    id = aws_launch_template.lt.id
+    id = aws_launch_template.asg_lt.id
   }
   vpc_zone_identifier = [data.aws_subnet.us-east-1a.id, data.aws_subnet.us-east-1b.id]
   target_group_arns   = [aws_lb_target_group.alb_tg.arn]
