@@ -64,7 +64,7 @@ resource "aws_alb_listener" "alb_listener" {
     type             = "forward"
   }
 }
-
+# Security group for the EC2 instances. Ingress allowed only for ports 22 and 80 (port 80 only allowed from the ALB), Egress allowed everywhere.
 resource "aws_security_group" "ec2_sg" {
   name        = "EC2WEBSG"
   description = "EC2WEBSG"
@@ -123,7 +123,7 @@ resource "aws_autoscaling_policy" "asg_pol" {
     predefined_metric_specification {
       predefined_metric_type = "ASGAverageCPUUtilization"
     }
-    target_value = "30"
+    target_value = "40"
   }
 
 }
